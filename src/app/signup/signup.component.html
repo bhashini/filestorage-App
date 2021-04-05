@@ -1,0 +1,64 @@
+
+<div *ngIf="enable">
+<a [routerLink]="['../login']" class="nav-link" routerLinkActive="active" (click)="onLogin()">Login</a><br>
+<form #postForm="ngForm" (ngSubmit)="onSubmit(postForm.value)">
+    <div class="form-group">
+        <label for="fullName">FullName</label>
+        <input type="text" 
+               class="form-control" 
+               id="name" 
+               name="name"
+               placeholder="Type the Fullname" 
+               [ngModel]="loadedUser.name" 
+               required>
+               
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" 
+               class="form-control" 
+               id="email" 
+               name="email" 
+               placeholder="Type the Email address" 
+               [ngModel]="loadedUser.email" 
+               (input)="onUsersAvailability($event)"
+               required>
+               <p>{{ userAvaibality }}</p>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" 
+               class="form-control" 
+               id="password" 
+               name="password" 
+               placeholder="Type the password" 
+               [ngModel]="loadedUser.password" 
+               required>
+    </div>
+
+    <div class="form-group">
+        <label for="bname">Bucket Name</label>
+        <input type="text" 
+               class="form-control" 
+               id="bname" 
+               name="bname" 
+               placeholder="Type the bucket name" 
+               [ngModel]="loadedUser.bname"  
+               >
+    </div>
+ 
+    <br />
+    <button type="submit" 
+            class="btn btn-primary" [disabled]="!postForm.valid" >Submit
+            <!-- [disabled]="!postForm.valid"> -->
+        <!--<span *ngIf="type==='create'">Create</span>
+        <span *ngIf="type==='update'">Update</span>-->
+    </button>
+</form>
+
+
+<p *ngIf='exits'>User is already exits.Please login</p>
+
+</div>
+<router-outlet></router-outlet>

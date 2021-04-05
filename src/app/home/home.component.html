@@ -1,0 +1,35 @@
+  
+<div class="split_left left">
+    <div class="centered_right_img">
+      <img src="https://mdinteractive.com/files/image/File_storage_header_icon.png" style="width: 100px"><br><br>
+    </div><br><br><br>
+
+
+    <div class="centered_right">
+
+   
+      <a [routerLink]="['/home/uploadfile']" [queryParams]="{ uname: uname}" routerLinkActive="active" >Upload New File</a><br>
+        <a [routerLink]="['/home/files']" [queryParams]="{ uname: uname}" routerLinkActive="active" >All Files </a><br>
+        <a [routerLink]="['/home/profile']" [queryParams]="{ uname: uname}" routerLinkActive="active" >My Profile</a><br><br>
+        
+ 
+       <button (click)="onLogout()">Logout</button>
+    
+    </div>
+    
+   
+  </div>
+  
+  <div class="split_right">
+    <div class="centered_left_search">
+      <input type="text" placeholder="Search" class="input" >
+      <button type="submit"><i class="fa fa-search"></i>Submit</button>
+    </div>
+    <div class="centered_left">
+      <router-outlet></router-outlet>
+    </div>
+  
+  </div>
+
+
+ 

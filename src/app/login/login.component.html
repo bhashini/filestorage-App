@@ -1,0 +1,15 @@
+<div >
+
+<h3>Welcome to filestorage</h3>
+
+<label>User Name: </label>
+<input type="text" placeholder="username" id="un"  (input)="username($event)"><br> 
+
+<label>Password: </label>
+<input type="text" placeholder="password" id="pw" (input)="password($event)"><br>
+
+<button (click)="onLogin()">Login</button>
+<!--<p *ngIf="msg">Username and Password Mismatch ....</p>-->
+<p>{{ msg }}</p>
+</div>
+
